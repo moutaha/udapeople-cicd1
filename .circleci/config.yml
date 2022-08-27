@@ -1,15 +1,15 @@
 version: 2.1
 
-# commands:
-#   install awscli:
-#      description : Install AWS CLI v2
-#      steps:
-#        -run:
-#           name: Install AWS v2
-#           command : |
-#           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-#           unzip awscliv2.zip
-#           sudo ./aws/install
+commands:
+  install awscli:
+     description : Install AWS CLI v2
+     steps:
+       -run:
+          name: Install AWS v2
+          command : |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscli-exe-linux-x86_64"
+          unzip awscli-exe-linux-x86_64
+          sudo ./aws/install
   
 #   install ansible:
 #       description : Install Ansible v2

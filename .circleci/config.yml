@@ -149,7 +149,7 @@ jobs:
 
   deploy-infrastructure:
     docker:
-      -image: cimg/base:2022.08
+      -image: cimg/base:stable
     steps:
       - checkout
       - install_awscli

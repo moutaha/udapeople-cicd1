@@ -184,7 +184,7 @@ jobs:
       - persist_to_workspace:
           root: ~/
           paths:
-            - project/.circleci/ansible/inventory.txt
+            - UDAPEOPLE-CICD/.circleci/ansible/inventory.txt
 
 #      Here's where you will add some code to rollback on failure      
 

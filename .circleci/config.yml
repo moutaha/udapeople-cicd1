@@ -29,13 +29,14 @@ commands:
        type: string
        default: ${CIRCLE_WORKFLOW_ID:0:7}   
     steps:
-      - run:
-          name: Destroy environments
-          when: on_fail
+      - 
+        run:
           command: |
-            aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.Workflow_ID >>
-            aws s3 rm s3://udapeople-<< parameters.Workflow_ID >>  --recursive 
-            aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.Workflow_ID >>
+              aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.Workflow_ID >>
+              aws s3 rm s3://udapeople-<< parameters.Workflow_ID >>  --recursive 
+              aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.Workflow_ID >>
+          name: Destroy environments
+          when: on_fail        
             
 
 #   revert-migrations:
@@ -190,7 +191,8 @@ jobs:
           paths:
             - project/.circleci/ansible/inventory.txt
 
-      - destroy-environment:      
+      - 
+        destroy-environment: ~
 
 # configure-infrastructure:
 #   docker:
@@ -356,3 +358,5 @@ workflows:
 #          requires: [smoke-test]
 #      - cleanup:
 #          requires: [cloudfront-update]
+
+

@@ -18,9 +18,9 @@
 
     - name: "install python for Ansible."
       become: ture
-      raw: test -e /user/bin/python3 || (apt -y update && install -y python3)
-      changed_when: false
-    - setup:
+      apt:
+        name: python3
+        update_cache: yes
 
   # Get the environment variables from CircleCI and add to the EC2 instance
  # environment:

@@ -1,6 +1,6 @@
 ---
 - name : "Add node.js from Nodesource"
-  become: ture
+  become: true
   shell : |
     curl -fsSL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 

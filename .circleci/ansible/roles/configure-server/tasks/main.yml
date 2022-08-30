@@ -5,7 +5,7 @@
     curl -fsSL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 
 - name : "Install Node.js 13"
-  become: ture
+  become: true
   apt:
     name: ["nodejs"]
     state: latest

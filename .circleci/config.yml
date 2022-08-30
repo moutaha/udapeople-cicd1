@@ -204,7 +204,9 @@ jobs:
       - attach_workspace:
          at: ~/
       - run:
-          name: Install dependencies
+          name: Install_dependencies
+          command: |
+           apk add --update ansible
       - run:
           name: Configure Server
           command: |

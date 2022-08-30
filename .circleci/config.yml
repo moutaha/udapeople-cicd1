@@ -59,98 +59,98 @@ commands:
 #             fi
             
 jobs:
-  build-frontend:
-    docker:
-      - image: cimg/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys: [frontend-deps]
-      - run:
-          name: Build front-end
-          command: |
-            cd frontend 
-            npm install
-            npm run build
-      - save_cache:
-          paths: [frontend/node_modules]
-          key: frontend-deps
+  # build-frontend:
+  #   docker:
+  #     - image: cimg/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [frontend-deps]
+  #     - run:
+  #         name: Build front-end
+  #         command: |
+  #           cd frontend 
+  #           npm install
+  #           npm run build
+  #     - save_cache:
+  #         paths: [frontend/node_modules]
+  #         key: frontend-deps
 
-  build-backend:
-    docker:
-      - image: cimg/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys: [backend-deps]
-      - run:
-          name: Back-end build
-          command: |
-             cd backend
-             npm install
-             npm run build
-      - save_cache:
-          paths: [backend/node_modules]
-          key: backend-deps
+  # build-backend:
+  #   docker:
+  #     - image: cimg/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [backend-deps]
+  #     - run:
+  #         name: Back-end build
+  #         command: |
+  #            cd backend
+  #            npm install
+  #            npm run build
+  #     - save_cache:
+  #         paths: [backend/node_modules]
+  #         key: backend-deps
 
-  test-frontend:
-    docker:
-      - image: cimg/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys: [frontend-deps]
-      - run:
-          name: Front-end Unit Test
-          command: |
-             cd frontend
-             npm install
-             npm test
+  # test-frontend:
+  #   docker:
+  #     - image: cimg/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [frontend-deps]
+  #     - run:
+  #         name: Front-end Unit Test
+  #         command: |
+  #            cd frontend
+  #            npm install
+  #            npm test
                 
-  test-backend:
-    docker:
-      - image: cimg/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys: [backend-deps]
-      - run:
-          name: Back-end Unit Test
-          command: |
-             cd backend
-             npm install
-             npm test
+  # test-backend:
+  #   docker:
+  #     - image: cimg/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [backend-deps]
+  #     - run:
+  #         name: Back-end Unit Test
+  #         command: |
+  #            cd backend
+  #            npm install
+  #            npm test
             
-  scan-frontend:
-   docker:
-     - image: cimg/node:13.8.0
-   steps:
-      - checkout
-      - restore_cache:
-          keys: [frontend-deps]
-      - run:
-          name: Front-end Scan
-          command: |
-             cd frontend
-             npm install
-             npm audit fix --force --audit-level=critical
-             npm audit --audit-level=critical
+  # scan-frontend:
+  #  docker:
+  #    - image: cimg/node:13.8.0
+  #  steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [frontend-deps]
+  #     - run:
+  #         name: Front-end Scan
+  #         command: |
+  #            cd frontend
+  #            npm install
+  #            npm audit fix --force --audit-level=critical
+  #            npm audit --audit-level=critical
 
-  scan-backend:
-   docker:
-     - image: cimg/node:13.8.0
-   steps:
-      - checkout
-      - restore_cache:
-          keys: [backend-deps]
-      - run:
-          name: Back-end Scan
-          command: |
-             cd backend
-             npm install
-             npm audit fix --force --audit-level=critical
-             npm audit fix --force --audit-level=critical
-             npm audit --audit-level=critical
+  # scan-backend:
+  #  docker:
+  #    - image: cimg/node:13.8.0
+  #  steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [backend-deps]
+  #     - run:
+  #         name: Back-end Scan
+  #         command: |
+  #            cd backend
+  #            npm install
+  #            npm audit fix --force --audit-level=critical
+  #            npm audit fix --force --audit-level=critical
+  #            npm audit --audit-level=critical
 
   deploy-infrastructure:
     docker:
@@ -328,21 +328,21 @@ jobs:
 workflows:
   default:
     jobs:
-      - build-frontend
-      - build-backend
-      - test-frontend:
-         requires: [build-frontend]
-      - test-backend:
-         requires: [build-backend]
-      - scan-backend:
-         requires: [build-backend]
-      - scan-frontend:
-         requires: [build-frontend]
+      # - build-frontend
+      # - build-backend
+      # - test-frontend:
+      #    requires: [build-frontend]
+      # - test-backend:
+      #    requires: [build-backend]
+      # - scan-backend:
+      #    requires: [build-backend]
+      # - scan-frontend:
+      #    requires: [build-frontend]
       - deploy-infrastructure:
-         requires: [test-frontend, test-backend, scan-frontend, scan-backend]
-         filters:
-           branches:
-              only: [main]
+        #  requires: [test-frontend, test-backend, scan-frontend, scan-backend]
+        #  filters:
+        #    branches:
+        #       only: [main]
       - configure-infrastructure:
          requires: [deploy-infrastructure]
 #      - run-migrations:

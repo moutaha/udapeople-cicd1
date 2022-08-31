@@ -247,7 +247,7 @@ jobs:
 
   deploy-frontend:
     docker:
-      -cimg/base:stable
+      - image : cimg/base:stable
     steps:
       - checkout
       - install_awscli

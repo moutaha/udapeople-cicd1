@@ -305,7 +305,7 @@ jobs:
             tar -czf artifact.tar.gz dist/* package*
 
             cd ..
-            cp backend/arifact.tar.gz .circle/anisble/roles/deploy/files
+            cp backend/artifact.tar.gz .circleci/anisble/roles/deploy/files
               
       - run:
           name: Deploy backend

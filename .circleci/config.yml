@@ -354,9 +354,9 @@ jobs:
             if curl -s {$URL} | grep "Welcome"
             then
               return 1
-           else
+            else
               return 1
-           fi
+            fi
       - destroy-environment
       - revert-migrations
 

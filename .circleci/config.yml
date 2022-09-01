@@ -386,7 +386,7 @@ jobs:
       - destroy-environment
       - revert-migrations
 
-  cleanup:
+   cleanup:
     docker:
       cimg/base:stable
     steps:

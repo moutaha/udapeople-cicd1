@@ -386,9 +386,9 @@ jobs:
       - destroy-environment
       - revert-migrations
 
-   cleanup:
+  cleanup:
     docker:
-      cimg/base:stable
+     - image: cimg/base:stable
     steps:
       - checkout
       - install_awscli
@@ -403,6 +403,7 @@ jobs:
 
             export OldWorkflowID=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/old_workflow_id)
             echo Old Workflow ID: $OldWorkflowID
+            
             if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
             then
               aws s3 rm "s3://udapeople-${OldWorkflowID}"  --recursive 

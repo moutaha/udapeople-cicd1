@@ -1,0 +1,5 @@
+1) Github public repo URL1 : https://github.com/moutaha/udapeople-cicd1
+2) S3 Bucket website URL2 : http://udapeople-0ef2f98.s3-website-us-east-1.amazonaws.com/#/employees
+3) Deloyed and functioning frontend in cloudfront URL3 : https://d1kig00fcgg0u8.cloudfront.net/#/employees
+4) Healthy backend App URL4 : http://3.93.152.172:3030/api/status
+5) Prometheus Server URL5 : http://ec2-3-82-197-79.compute-1.amazonaws.com:9090/graph
